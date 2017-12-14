@@ -49,8 +49,8 @@ function _zqRemoveCookie(key, domain, path)
 		domain=';domain=' + domain;
 	}
 	if( ! path ){
-		path = 'path=/';
+		path = '/';
 	}
-	path = ';' + path;
+	path = ';path=' + path;
 	document.cookie=key + '=0;expires='+(new Date( +(new Date())-1 ).toUTCString()) + domain + path;
 }
