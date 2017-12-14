@@ -41,7 +41,16 @@ function _zqGetCookie(key)
 		return match[1];
 	}
 }
-function _zqRemoveCookie(key)
+function _zqRemoveCookie(key, domain, path)
 {
-	document.cookie=key+'=0;expires='+(new Date( +(new Date())-1 ).toUTCString());
+	if( ! domain ){
+		domain='';
+	}else{
+		domain=';' + domain;
+	}
+	if( ! path ){
+		path = '/';
+	}
+	path = ';' + path;
+	document.cookie=key'=0;expires='+(new Date( +(new Date())-1 ).toUTCString()) + domain + path;
 }
